@@ -1,6 +1,6 @@
 {
   "name": "@pointblankdev/apollo-plugin-sentry",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An Apollo Plugin for Sentry Monitoring 🔍",
   "keywords": [
     "apollo",
@@ -88,5 +88,10 @@
     "tslint-config-standard": "^8.0.1",
     "typescript": "^4.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@sentry/node": "^6.13.3",
+    "apollo-server-types": "^3.2.0",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.6.1"
+  }
 }
