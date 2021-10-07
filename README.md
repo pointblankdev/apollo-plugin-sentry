@@ -9,17 +9,17 @@
 
 An Apollo Plugin for Sentry Monitoring 🔍
 
-<br/>
-
-## Why?
-
-Just Because. TBD.
+[Tracking Errors in Apollo GraphQL with Sentry](https://medium.com/@mahyor.sam/tracking-errors-in-apollo-graphql-with-sentry-549ae52c0c76)
 
 <br/>
 
-### Requirements
+## How it works
 
-TBD.
+Apollo server uses lifecycle events, enabling us to easily instrument an app for sentry integration.
+
+Here's a visual diagram of the flow of lifecycle events. Learn more at the [Apollo Plugin Docs 📚](https://www.apollographql.com/docs/apollo-server/integrations/plugins/)
+
+![Lifecycle Events Diagram](apollo-hooks-diagram.png)
 
 <br/>
 
