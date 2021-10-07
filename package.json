@@ -1,0 +1,92 @@
+{
+  "name": "@pointblankdev/apollo-plugin-sentry",
+  "version": "0.0.1",
+  "description": "An Apollo Plugin for Sentry Monitoring 🔍",
+  "keywords": [
+    "apollo",
+    "plugin",
+    "sentry"
+  ],
+  "main": "dist/lib/index.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Sijuade Ajagunna <sijuade@pointblankdev.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pointblankdev/apollo-plugin-sentry"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs --declarationMap",
+    "test": "jest --coverage --runInBand",
+    "test:watch": "jest --coverage --watch --runInBand",
+    "test:prod": "npm run lint && npm run test -- --no-cache --runInBand",
+    "deploy-docs": "ts-node tools/gh-pages-publish",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "prepublish": "yarn build",
+    "postpublish": "git push"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 75,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^15.12.2",
+    "@types/uuid": "^8.3.0",
+    "colors": "^1.3.2",
+    "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
+    "husky": "^1.0.1",
+    "jest": "^27.0.4",
+    "jest-config": "^27.0.4",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.14.3",
+    "prompt": "^1.0.0",
+    "replace-in-file": "^3.4.2",
+    "rimraf": "^2.6.2",
+    "shelljs": "^0.8.3",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {}
+}
