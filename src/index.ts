@@ -4,17 +4,8 @@ import { GraphQLRequestContext } from 'apollo-server-types'
 import { config } from 'dotenv'
 
 config()
-import { GraphQLError } from 'graphql'
-// interface SentryConfigOptions {
-//   ignoreGraphQLErrors?: boolean
-//   // tags?: any
-//   // breadCrumbs?: any
-//   // extras?: any
-// }
 
-// function sentryConfig(options: SentryConfigOptions, dsn: string) {
-//   return
-const sentryConfig = {
+const sentryPlugin = {
   // request lifecycle events
   requestDidStart(_: GraphQLRequestContext) {
     /* Within this returned object, define functions that respond
@@ -71,5 +62,5 @@ const sentryConfig = {
 
 Sentry.init({ dsn: process.env.SENTRY_DSN, tracesSampleRate: 1.0, environment: process.env.ENV })
 
-export { sentryConfig }
-export default { sentryConfig }
+export { sentryPlugin }
+export default { sentryPlugin }

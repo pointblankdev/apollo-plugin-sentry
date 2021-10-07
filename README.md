@@ -37,6 +37,19 @@ npm install @pointblankdev/apollo-plugin-sentry
 
 ## Usage
 
-🚧 Work in progress 🚧
+- To get started, you need to have a Sentry DSN which you can get [here](https://sentry,io). This value should be assigned to the `SENTRY_DSN` environment variable.
+- Make sure you have the `ENV` variable set so Sentry knows which environment to use for tracking your errors
+- Import the package and pass an array containing the variable to the plugin options of your Apollo Server and you're good to go 🚀
 
-<br/>
+  ```
+  const {
+    sentryPlugin,
+  } = require('@pointblankdev/apollo-plugin-sentry');
+  ```
+
+  ```bash
+  server = new ApolloServer({
+      ...,
+      plugins: [sentryPlugin],
+  });
+  ```
