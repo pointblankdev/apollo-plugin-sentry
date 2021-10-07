@@ -1,6 +1,6 @@
 {
   "name": "@pointblankdev/apollo-plugin-sentry",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An Apollo Plugin for Sentry Monitoring 🔍",
   "keywords": [
     "apollo",
