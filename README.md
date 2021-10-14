@@ -39,6 +39,9 @@ npm install @pointblankdev/apollo-plugin-sentry
 
 - To get started, you need to have a Sentry DSN which you can get [here](https://sentry,io). This value should be assigned to the `SENTRY_DSN` environment variable.
 - Make sure you have the `ENV` variable set so Sentry knows which environment to use for tracking your errors
+
+###### Pre 0.0.6
+
 - Import the package and pass an array containing the variable to the plugin options of your Apollo Server and you're good to go 🚀
 
   ```
@@ -48,8 +51,29 @@ npm install @pointblankdev/apollo-plugin-sentry
   ```
 
   ```bash
-  server = new ApolloServer({
+  const server = new ApolloServer({
       ...,
       plugins: [sentryPlugin],
   });
   ```
+
+###### >= 0.0.6
+
+- Import the package, initialize it by calling it with an optional service name, pass the result to the plugin options of your Apollo Server and you're good to go
+
+  ```bash
+  const {
+    sentryPlugin,
+  } = require('@pointblankdev/apollo-plugin-sentry');
+
+  const plugin = sentryPlugin('my-repo');
+  ```
+
+  ```bash
+  const server = new ApolloServer({
+      ...,
+      plugins: [plugin],
+  });
+  ```
+
+- The service name is added as a `service_name` tag in your error reporting, therefore making it much easier to identify individual services at first glance when you have a project that serves multiple services.
